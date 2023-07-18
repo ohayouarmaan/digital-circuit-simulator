@@ -30,7 +30,6 @@ class NandGate(Gate):
 
         g.process()
         n.process()
-        print(g.values)
         self.values = [ b4.leftNode ]
         self.send(b4.leftNode)
 

@@ -3,6 +3,7 @@ class Gate:
         self.nr_inputs = nr_inputs
         self.nr_outputs = nr_outputs
         self.inputs = {}
+        self.inp_values = []
         self.outputs = {}
     
     def appendInput(self, b):
@@ -13,7 +14,9 @@ class Gate:
 
     def recieve(self, value, x):
         # rerun the processing
-        self.send(value)
+        self.inp_values.append(value)
+        if len(self.inp_values) < self.nr_inputs:
+            self.send(value)
     
     def send(self, y):
         for x in list(self.outputs.keys()):
