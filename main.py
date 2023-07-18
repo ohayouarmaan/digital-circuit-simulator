@@ -1,6 +1,7 @@
 from andGate import AND_GATE
 from Bus import Bus
-    
+from notGate import NotGate
+from NandGate import NandGate
 
 
 if __name__ == "__main__":
@@ -18,16 +19,14 @@ if __name__ == "__main__":
     b1 = Bus()
     b2 = Bus()
     b3 = Bus()
-    g = AND_GATE()
-    g.appendInput(b1)
-    g.appendInput(b2)
-    g.appendOutput(b3)
-
-    b1.appendRight(g, 0)
-    b2.appendRight(g, 1)
+    n = NandGate()
+    n.appendInput(b1)
+    n.appendInput(b2)
+    n.appendOutput(b3)
 
     b1.recieveLeft(1)
-    b2.recieveLeft(1)
+    b2.recieveLeft(0)
+    n.process()
 
     print(b3.leftNode)
     # b1.appendRight()

@@ -13,7 +13,6 @@ class Gate:
 
     def recieve(self, value, x):
         # rerun the processing
-        print("recieved ", value, x)
         self.send(value)
     
     def send(self, y):
