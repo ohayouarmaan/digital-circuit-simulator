@@ -1,38 +1,6 @@
-class Bus:
-    def __init__(self) -> None:
-        self.rightNodes = {}
+from andGate import AND_GATE
+from Bus import Bus
     
-    def appendRight(self, g, i):
-        self.rightNodes[i] = g
-    
-    def recieveLeft(self, value):
-        self.leftNode = value
-        for x in list(self.rightNodes.keys()):
-            self.rightNodes[x].recieve(value, x)
-        
-
-class Gate:
-    def __init__(self, nr_inputs, nr_outputs) -> None:
-        self.nr_inputs = nr_inputs
-        self.nr_outputs = nr_outputs
-        self.inputs = {}
-        self.outputs = {}
-    
-    def appendInput(self, b):
-        self.inputs[len(list(self.inputs.keys()))] = b
-    
-    def appendOutput(self, b):
-        self.outputs[len(list(self.outputs.keys()))] = b
-
-    def recieve(self, value, x):
-        # rerun the processing
-        print("recieved ", value, x)
-        self.send(value + 1)
-    
-    def send(self, y):
-        for x in list(self.outputs.keys()):
-            self.outputs[x].recieveLeft(y)
-
 
 
 if __name__ == "__main__":
@@ -50,7 +18,7 @@ if __name__ == "__main__":
     b1 = Bus()
     b2 = Bus()
     b3 = Bus()
-    g = Gate(2, 1)
+    g = AND_GATE()
     g.appendInput(b1)
     g.appendInput(b2)
     g.appendOutput(b3)
@@ -58,7 +26,8 @@ if __name__ == "__main__":
     b1.appendRight(g, 0)
     b2.appendRight(g, 1)
 
-    b1.recieveLeft(0)
-    b2.recieveLeft(0)
+    b1.recieveLeft(1)
+    b2.recieveLeft(1)
 
+    print(b3.leftNode)
     # b1.appendRight()
