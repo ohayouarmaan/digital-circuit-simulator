@@ -2,7 +2,8 @@ from andGate import AND_GATE
 from Bus import Bus
 from notGate import NotGate
 from NandGate import NandGate
-from OR_GATE import OrGate
+from OrGate import OrGate
+from NorGate import NorGate
 
 
 if __name__ == "__main__":
@@ -20,7 +21,7 @@ if __name__ == "__main__":
     b1 = Bus()
     b2 = Bus()
     b3 = Bus()
-    o = OrGate()
+    o = NorGate()
     o.appendInput(b1)
     o.appendInput(b2)
     o.appendOutput(b3)
