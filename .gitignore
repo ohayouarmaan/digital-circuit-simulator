@@ -1,1 +1,4 @@
 __pycache__
+javascriptPort/node_modules
+javascriptPort/dist
+**/**.env
