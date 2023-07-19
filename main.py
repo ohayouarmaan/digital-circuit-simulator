@@ -70,4 +70,4 @@ if __name__ == "__main__":
     c.appendGate(o1)
     c.appendGate(o2)
 
-    print(c.export())
+    print(c.export("./sr_latch.json"))
