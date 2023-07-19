@@ -25,11 +25,11 @@ class OrGate(Gate):
         nand.appendInput(b4)
         nand.appendOutput(b5)
 
-        b1.appendRight(n1, 0)
-        b2.appendRight(n2, 0)
+        b1.appendRight(n1)
+        b2.appendRight(n2)
 
-        b3.appendRight(nand, 0)
-        b4.appendRight(nand, 0)
+        b3.appendRight(nand)
+        b4.appendRight(nand)
         
         b1.recieveLeft(self.inputs[0].leftNode)
         b2.recieveLeft(self.inputs[1].leftNode)

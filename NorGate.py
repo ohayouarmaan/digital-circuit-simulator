@@ -20,9 +20,9 @@ class NorGate(Gate):
         n.appendInput(b3)
         n.appendOutput(b4)
 
-        b1.appendRight(g, 0)
-        b2.appendRight(g, 1)
-        b3.appendRight(n, 0)
+        b1.appendRight(g)
+        b2.appendRight(g)
+        b3.appendRight(n)
 
 
         b1.recieveLeft(self.inputs[0].leftNode)

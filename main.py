@@ -1,9 +1,11 @@
 from andGate import AND_GATE
+import json
 from Bus import Bus
 from notGate import NotGate
 from NandGate import NandGate
 from OrGate import OrGate
 from NorGate import NorGate
+from Circuit import Circuit
 
 
 if __name__ == "__main__":
@@ -34,10 +36,10 @@ if __name__ == "__main__":
     o2.appendOutput(b4)
     o2.appendOutput(b5)
     
-    b1.appendRight(o1, 0)
-    b2.appendRight(o2, 0)
-    b3.appendRight(o2, 0)
-    b4.appendRight(o1, 0)
+    b1.appendRight(o1)
+    b2.appendRight(o2)
+    b3.appendRight(o2)
+    b4.appendRight(o1)
 
     b1.recieveLeft(1)
     b2.recieveLeft(0)
@@ -47,7 +49,25 @@ if __name__ == "__main__":
 
     print(b5.leftNode)
 
+    b1.recieveLeft(1)
     b2.recieveLeft(1)
     o1.process()
     o2.process()
     print(b5.leftNode)
+
+    b1.recieveLeft(0)
+    b2.recieveLeft(0)
+    o1.process()
+    o2.process()
+    print(b5.leftNode)
+
+    c = Circuit(2, 2)
+    c.appendBus(b1)
+    c.appendBus(b2)
+    c.appendBus(b3)
+    c.appendBus(b4)
+    c.appendBus(b5)
+    c.appendGate(o1)
+    c.appendGate(o2)
+
+    print(c.export())
