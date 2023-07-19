@@ -70,4 +70,8 @@ if __name__ == "__main__":
     c.appendGate(o1)
     c.appendGate(o2)
 
-    print(c.export("./sr_latch.json"))
+    c.export("./sr_latch.json")
+
+    new_c = Circuit.retrieve("./sr_latch.json")
+    
+
