@@ -39,3 +39,5 @@ class OrGate extends Gate {
         this.send((b5.leftNode as number));
     }
 }
+
+export default OrGate
