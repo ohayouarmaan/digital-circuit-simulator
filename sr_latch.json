@@ -1,1 +1,54 @@
-{"nr_inputs": 2, "nr_outputs": 2, "busses": [{"rightNodes": ["f0e4e8c8-8de2-4c62-af7c-89de33158dc6"], "leftNode": 0, "id": "9f1534eb-0ead-4ef4-a1ce-b1b32e6cc2df"}, {"rightNodes": ["223c37e6-40b2-47b6-8690-a56b8f6640fe"], "leftNode": 0, "id": "fde553e2-401c-4471-8dd8-259389e0f42e"}, {"rightNodes": ["223c37e6-40b2-47b6-8690-a56b8f6640fe"], "leftNode": 1, "id": "c70e72a7-8e0f-49a9-90a4-cce06e9783c5"}, {"rightNodes": ["f0e4e8c8-8de2-4c62-af7c-89de33158dc6"], "leftNode": 0, "id": "874808cf-874b-483e-8501-fd02553e9513"}, {"rightNodes": [], "leftNode": 0, "id": "3b759573-00eb-4930-b186-bb35d8aafb3a"}], "gates": [{"leftNodes": ["9f1534eb-0ead-4ef4-a1ce-b1b32e6cc2df", "874808cf-874b-483e-8501-fd02553e9513"], "rightNodes": ["9f1534eb-0ead-4ef4-a1ce-b1b32e6cc2df"], "type": "<class 'NorGate.NorGate'>", "id": "f0e4e8c8-8de2-4c62-af7c-89de33158dc6"}, {"leftNodes": ["fde553e2-401c-4471-8dd8-259389e0f42e", "c70e72a7-8e0f-49a9-90a4-cce06e9783c5"], "rightNodes": ["fde553e2-401c-4471-8dd8-259389e0f42e", "c70e72a7-8e0f-49a9-90a4-cce06e9783c5"], "type": "<class 'NorGate.NorGate'>", "id": "223c37e6-40b2-47b6-8690-a56b8f6640fe"}]}
+{
+  "nr_inputs": 2,
+  "nr_outputs": 2,
+  "busses": [
+    {
+      "rightNodes": ["5e827292-4d3d-46ae-bb6e-ae888c72f8f6"],
+      "leftNode": 0,
+      "id": "b82ab7a8-6a1d-4253-bf37-702d19e95d2e"
+    },
+    {
+      "rightNodes": ["cdaeb457-6d4c-4a2a-be3b-eac94146dfa9"],
+      "leftNode": 0,
+      "id": "e0a1f340-eeda-4bb8-a938-b7a882ca1a9b"
+    },
+    {
+      "rightNodes": ["cdaeb457-6d4c-4a2a-be3b-eac94146dfa9"],
+      "leftNode": 1,
+      "id": "5932286a-2cdd-46f9-864e-d4edab7a7ec4"
+    },
+    {
+      "rightNodes": ["5e827292-4d3d-46ae-bb6e-ae888c72f8f6"],
+      "leftNode": 0,
+      "id": "019d04f4-6fed-45e6-a44c-646a2f3c237f"
+    },
+    {
+      "rightNodes": [],
+      "leftNode": 0,
+      "id": "2b3afba1-21fe-4149-bbd2-b49e5dc195b7"
+    }
+  ],
+  "gates": [
+    {
+      "leftNodes": [
+        "b82ab7a8-6a1d-4253-bf37-702d19e95d2e",
+        "019d04f4-6fed-45e6-a44c-646a2f3c237f"
+      ],
+      "rightNodes": ["b82ab7a8-6a1d-4253-bf37-702d19e95d2e"],
+      "type": "<class 'NorGate.NorGate'>",
+      "id": "5e827292-4d3d-46ae-bb6e-ae888c72f8f6"
+    },
+    {
+      "leftNodes": [
+        "e0a1f340-eeda-4bb8-a938-b7a882ca1a9b",
+        "5932286a-2cdd-46f9-864e-d4edab7a7ec4"
+      ],
+      "rightNodes": [
+        "e0a1f340-eeda-4bb8-a938-b7a882ca1a9b",
+        "5932286a-2cdd-46f9-864e-d4edab7a7ec4"
+      ],
+      "type": "<class 'NorGate.NorGate'>",
+      "id": "cdaeb457-6d4c-4a2a-be3b-eac94146dfa9"
+    }
+  ]
+}

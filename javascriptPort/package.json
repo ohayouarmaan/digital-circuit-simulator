@@ -12,5 +12,8 @@
   "dependencies": {
     "@types/uuid": "^9.0.2",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.2"
   }
 }
