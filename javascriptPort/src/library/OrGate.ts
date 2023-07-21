@@ -5,38 +5,46 @@ import NotGate from "./NotGate";
 
 class OrGate extends Gate {
     values: (number | Gate | null)[] | undefined;
+    b1: Bus;
+    b2: Bus;
+    b3: Bus;
+    b4: Bus;
+    b5: Bus;
+    n1: NotGate;
+    n2: NotGate;
+    nand: NandGate;
     constructor() {
         super(2, 1);
+        this.b1 = new Bus()
+        this.b2 = new Bus()
+        this.b3 = new Bus();
+        this.b4 = new Bus();
+        this.b5 = new Bus();
+        this.n1 = new NotGate();
+        this.n2 = new NotGate();
+        this.nand = new NandGate();
     }
     process() {
-        let b1 = new Bus();
-        let b2 = new Bus();
-        let b3 = new Bus();
-        let b4 = new Bus();
-        let b5 = new Bus();
-        let n1 = new NotGate();
-        let n2 = new NotGate();
-        let nand = new NandGate();
-        n1.appendInput(b1);
-        n2.appendInput(b2);
-        n1.appendOutput(b3);
-        n2.appendOutput(b4);
-        nand.appendInput(b3);
-        nand.appendInput(b4);
-        nand.appendOutput(b5);
-        b1.appendRight(n1);
-        b2.appendRight(n2);
-        b3.appendRight(nand);
-        b4.appendRight(nand);
+        this.n1.appendInput(this.b1);
+        this.n2.appendInput(this.b2);
+        this.n1.appendOutput(this.b3);
+        this.n2.appendOutput(this.b4);
+        this.nand.appendInput(this.b3);
+        this.nand.appendInput(this.b4);
+        this.nand.appendOutput(this.b5);
+        this.b1.appendRight(this.n1);
+        this.b2.appendRight(this.n2);
+        this.b3.appendRight(this.nand);
+        this.b4.appendRight(this.nand);
         if(this.inputs[0].leftNode && this.inputs[1].leftNode){
-            b1.recieveLeft(this.inputs[0].leftNode);
-            b2.recieveLeft(this.inputs[1].leftNode);
+            this.b1.recieveLeft(this.inputs[0].leftNode);
+            this.b2.recieveLeft(this.inputs[1].leftNode);
         }
-        n1.process();
-        n2.process();
-        nand.process();
-        this.values = [b5.leftNode];
-        this.send((b5.leftNode as number));
+        this.n1.process();
+        this.n2.process();
+        this.nand.process();
+        this.values = [this.b5.leftNode];
+        this.send((this.b5.leftNode as number));
     }
 }
 

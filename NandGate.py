@@ -6,30 +6,30 @@ from notGate import NotGate
 class NandGate(Gate):
     def __init__(self) -> None:
         super().__init__(2, 1)
+        self.b1 = Bus()
+        self.b2 = Bus()
+        self.b3 = Bus()
+        self.b4 = Bus()
+        self.g = AND_GATE()
+        self.n = NotGate()
+        self.g.appendInput(self.b1)
+        self.g.appendInput(self.b2)
+        self.g.appendOutput(self.b3)
+        self.n.appendInput(self.b3)
+        self.n.appendOutput(self.b4)
+
+        self.b1.appendRight(self.g)
+        self.b2.appendRight(self.g)
+        self.b3.appendRight(self.n)
     
     def process(self):
-        b1 = Bus()
-        b2 = Bus()
-        b3 = Bus()
-        b4 = Bus()
-        g = AND_GATE()
-        n = NotGate()
-        g.appendInput(b1)
-        g.appendInput(b2)
-        g.appendOutput(b3)
-        n.appendInput(b3)
-        n.appendOutput(b4)
-
-        b1.appendRight(g)
-        b2.appendRight(g)
-        b3.appendRight(n)
 
 
-        b1.recieveLeft(self.inputs[0].leftNode)
-        b2.recieveLeft(self.inputs[1].leftNode)
+        self.b1.recieveLeft(self.inputs[0].leftNode)
+        self.b2.recieveLeft(self.inputs[1].leftNode)
 
-        g.process()
-        n.process()
-        self.values = [ b4.leftNode ]
-        self.send(b4.leftNode)
+        self.g.process()
+        self.n.process()
+        self.values = [ self.b4.leftNode ]
+        self.send(self.b4.leftNode)
 

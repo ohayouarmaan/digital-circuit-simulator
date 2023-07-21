@@ -5,33 +5,40 @@ import NotGate from "./NotGate";
 
 class NandGate extends Gate {
     values: (number | Gate | null)[] | undefined;
+    g: AND_GATE;
+    b1: Bus;
+    b2: Bus;
+    b3: Bus;
+    b4: Bus;
+    n: NotGate;
 
     constructor() {
         super(2, 1);
+        this.b1 = new Bus();
+        this.b2 = new Bus();
+        this.b3 = new Bus();
+        this.b4 = new Bus();
+        this.g = new AND_GATE();
+        this.n = new NotGate();
+
     }
     process() {
-        let b1 = new Bus();
-        let b2 = new Bus();
-        let b3 = new Bus();
-        let b4 = new Bus();
-        let g = new AND_GATE();
-        let n = new NotGate();
-        g.appendInput(b1);
-        g.appendInput(b2);
-        g.appendOutput(b3);
-        n.appendInput(b3);
-        n.appendOutput(b4);
-        b1.appendRight(g);
-        b2.appendRight(g);
-        b3.appendRight(n);
+        this.g.appendInput(this.b1);
+        this.g.appendInput(this.b2);
+        this.g.appendOutput(this.b3);
+        this.n.appendInput(this.b3);
+        this.n.appendOutput(this.b4);
+        this.b1.appendRight(this.g);
+        this.b2.appendRight(this.g);
+        this.b3.appendRight(this.n);
         if(this.inputs[0].leftNode && this.inputs[1].leftNode){
-            b1.recieveLeft((this.inputs[0].leftNode));
-            b2.recieveLeft(this.inputs[1].leftNode);
+            this.b1.recieveLeft((this.inputs[0].leftNode));
+            this.b2.recieveLeft(this.inputs[1].leftNode);
         }
-        g.process();
-        n.process();
-        this.values = Array.from([ b4.leftNode ]);
-        this.send( (b4.leftNode as number) );
+        this.g.process();
+        this.n.process();
+        this.values = Array.from([ this.b4.leftNode ]);
+        this.send( (this.b4.leftNode as number) );
     }
 }
 

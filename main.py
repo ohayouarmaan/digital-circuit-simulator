@@ -6,6 +6,7 @@ from NandGate import NandGate
 from OrGate import OrGate
 from NorGate import NorGate
 from Circuit import Circuit
+from DLatch import DFFE
 
 
 if __name__ == "__main__":
@@ -23,55 +24,18 @@ if __name__ == "__main__":
     b1 = Bus()
     b2 = Bus()
     b3 = Bus()
-    b4 = Bus()
-    b5 = Bus()
-    o1 = NorGate()
-    o2 = NorGate()
+    d = DFFE()
 
-    o1.appendInput(b1)
-    o1.appendOutput(b3)
-    o1.appendInput(b4)
-    o2.appendInput(b2)
-    o2.appendInput(b3)
-    o2.appendOutput(b4)
-    o2.appendOutput(b5)
-    
-    b1.appendRight(o1)
-    b2.appendRight(o2)
-    b3.appendRight(o2)
-    b4.appendRight(o1)
+    d.appendInput(b1)
+    d.appendInput(b2)
+    d.appendOutput(b3)
 
     b1.recieveLeft(1)
     b2.recieveLeft(0)
-
-    o1.process()
-    o2.process()
-
-    print(b5.leftNode)
-
-    b1.recieveLeft(1)
-    b2.recieveLeft(1)
-    o1.process()
-    o2.process()
-    print(b5.leftNode)
+    d.process()
+    print(b3.leftNode)
 
     b1.recieveLeft(0)
     b2.recieveLeft(0)
-    o1.process()
-    o2.process()
-    print(b5.leftNode)
-
-    c = Circuit(2, 2)
-    c.appendBus(b1)
-    c.appendBus(b2)
-    c.appendBus(b3)
-    c.appendBus(b4)
-    c.appendBus(b5)
-    c.appendGate(o1)
-    c.appendGate(o2)
-
-    c.export("./sr_latch.json")
-
-    new_c = Circuit.retrieve("./sr_latch.json")
-    
-
+    d.process()
+    print(b3.leftNode)
