@@ -4,15 +4,15 @@ import Gate from "./gate";
 import fs from "node:fs";
 
 class Circuit {
-    nrInputs: number;
-    nrOutputs: number;
-    busses: Array<Bus>;
-    gates: Array<Gate>;
-    metadata: {
-        "gates": Array<object>,
-        "busses": Array<object>
-    }
+  nrInputs: number;
+  nrOutputs: number;
+  busses: Array<Bus>;
+  gates: Array<Gate>;
 
+  metadata: {
+    gates: Array<object>;
+    busses: Array<object>;
+  };
 
   constructor(nrInputs: number, nrOutputs: number) {
     this.nrInputs = nrInputs;
@@ -20,8 +20,8 @@ class Circuit {
     this.busses = [];
     this.gates = [];
     this.metadata = {
-      "gates": [],
-      "busses": []
+      gates: [],
+      busses: [],
     };
   }
 
@@ -42,10 +42,10 @@ class Circuit {
 
   export(fileName: string) {
     const data = {
-      "nrInputs": this.nrInputs,
-      "nrOutputs": this.nrOutputs,
-      "busses": this.metadata.busses,
-      "gates": this.metadata.gates
+      nrInputs: this.nrInputs,
+      nrOutputs: this.nrOutputs,
+      busses: this.metadata.busses,
+      gates: this.metadata.gates,
     };
     fileName += ".json";
     fs.writeFileSync(fileName, JSON.stringify(data));
