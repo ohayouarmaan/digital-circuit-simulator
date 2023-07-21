@@ -1,6 +1,7 @@
 __pycache__
 
-javascriptPort/node_modules
+# javascriptPort/node_modules
 javascriptPort/dist
-
+**/**/node_modules
+**/**/*.logs
 **/**.env
