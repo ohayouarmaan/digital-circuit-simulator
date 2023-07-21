@@ -1,11 +1,15 @@
 import express, { Express } from "express"
+import cors from "cors";
+import morgan from "morgan";
 const server: Express = express()
 import v1 from "./routes/v1";
 
-server.use("/api/v1", v1);
+const corsOrigin = process.env.ORIGIN?.split(" ") ? process.env.ORIGIN : ["*"];
 
-server.listen(process.env.PORT || 3000, () => {
-    console.log(`[SERVER]: Listening on port ${process.env.PORT || 3000}`)
-});
+server.use(cors({
+    origin: corsOrigin
+}));
+server.use(morgan("dev"));
+server.use("/api/v1", v1);
 
 export default server;
