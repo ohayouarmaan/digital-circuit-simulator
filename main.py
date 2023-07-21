@@ -25,6 +25,7 @@ if __name__ == "__main__":
     b1 = Bus()
     b2 = Bus()
     b3 = Bus()
+    c = Circuit(2, 1)
 
     dl = DLatch()
     dl.appendInput(b1)
@@ -34,6 +35,11 @@ if __name__ == "__main__":
     b1.recieveLeft(1)
     b2.recieveLeft(0)
 
+    c.appendBus(b1)
+    c.appendBus(b2)
+    c.appendBus(b3)
+    c.appendGate(dl)
+    c.export("BuiltCircuits/DLatch.json")
     dl.process()
     b2.recieveLeft(1)
     dl.process()
