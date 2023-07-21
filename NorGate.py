@@ -18,9 +18,9 @@ class NorGate(Gate):
         self.n.appendInput(self.b3)
         self.n.appendOutput(self.b4)
 
-        self.b1.appendRight(self.g)
-        self.b2.appendRight(self.g)
-        self.b3.appendRight(self.n)
+        # self.b1.appendRight(self.g)
+        # self.b2.appendRight(self.g)
+        # self.b3.appendRight(self.n)
     
     def process(self):
 

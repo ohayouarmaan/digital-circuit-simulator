@@ -11,6 +11,7 @@ class Gate:
         self.id = str(uuid.uuid4())
     
     def appendInput(self, b):
+        b.appendRight(self)
         self.inputs[len(list(self.inputs.keys()))] = b
     
     def appendOutput(self, b):

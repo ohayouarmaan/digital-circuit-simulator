@@ -23,11 +23,11 @@ class OrGate(Gate):
         self.nand.appendInput(self.b4)
         self.nand.appendOutput(self.b5)
 
-        self.b1.appendRight(self.n1)
-        self.b2.appendRight(self.n2)
+        # self.b1.appendRight(self.n1)
+        # self.b2.appendRight(self.n2)
 
-        self.b3.appendRight(self.nand)
-        self.b4.appendRight(self.nand)
+        # self.b3.appendRight(self.nand)
+        # self.b4.appendRight(self.nand)
 
     def process(self):
         

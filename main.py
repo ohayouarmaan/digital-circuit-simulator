@@ -6,7 +6,8 @@ from NandGate import NandGate
 from OrGate import OrGate
 from NorGate import NorGate
 from Circuit import Circuit
-from DLatch import DFFE
+from DFF import DFF
+from DLatch import DLatch
 
 
 if __name__ == "__main__":
@@ -24,18 +25,16 @@ if __name__ == "__main__":
     b1 = Bus()
     b2 = Bus()
     b3 = Bus()
-    d = DFFE()
 
-    d.appendInput(b1)
-    d.appendInput(b2)
-    d.appendOutput(b3)
+    dl = DLatch()
+    dl.appendInput(b1)
+    dl.appendInput(b2)
+    dl.appendOutput(b3)
 
     b1.recieveLeft(1)
     b2.recieveLeft(0)
-    d.process()
-    print(b3.leftNode)
 
-    b1.recieveLeft(0)
-    b2.recieveLeft(0)
-    d.process()
+    dl.process()
+    b2.recieveLeft(1)
+    dl.process()
     print(b3.leftNode)
