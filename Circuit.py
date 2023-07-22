@@ -10,6 +10,9 @@ class Circuit:
         self.nr_outputs = nr_outputs
         self.busses = []
         self.gates = []
+        self.inputs = []
+        self.outputs = []
+        self.values = []
         self.metadata = {
             "gates": [],
             "busses": []
@@ -27,14 +30,23 @@ class Circuit:
         self.metadata['busses'].append(bus.toJson())
         self.busses.append(bus)
     
+    def appendInput(self, bus):
+        self.inputs.append(bus.id)
+
+    def appendOutput(self, bus):
+        self.outputs.append(bus.id)
+
     def export(self, fileName):
         data = {
             "nr_inputs": self.nr_inputs,
             "nr_outputs": self.nr_outputs,
             "busses": self.metadata['busses'],
-            "gates": self.metadata['gates']
+            "gates": self.metadata['gates'],
+            "inputs": self.inputs,
+            "outputs": self.outputs
         }
         fn = ""
+
         if fileName[len(fileName) - 5:] == ".json":
             fn = fileName
         else:
@@ -44,6 +56,21 @@ class Circuit:
             json.dump(data, f)
         return data
     
+    def process(self, values):
+        for _b in range(len(self.inputs)):
+            for b in self.busses:
+                if b.id == self.inputs[_b]:
+                    b.recieveLeft(values[_b])
+        
+        for g in range(len(self.gates)):
+            self.gates[g].process()
+        
+        for o in self.outputs:
+            for c in self.busses:
+                if c.id == o:
+                    self.values.append(c.leftNode)  
+        
+
     @staticmethod
     def retrieve(fileName):
         with open(fileName, "r") as f:
@@ -81,7 +108,17 @@ class Circuit:
             
             g.id = gate['id']
 
+            gates[gate['id']] = g
+        
         c = Circuit(data['nr_inputs'], data['nr_outputs'])
+        for bus in data['inputs']:
+            b = busses[bus]
+            c.appendInput(b)
+
+        for bus in data['outputs']:
+            b = busses[bus]
+            c.appendOutput(b)
+
         for x in busses:
             c.appendBus(busses[x])
         
