@@ -28,9 +28,6 @@ class NandGate extends Gate {
         this.g.appendOutput(this.b3);
         this.n.appendInput(this.b3);
         this.n.appendOutput(this.b4);
-        this.b1.appendRight(this.g);
-        this.b2.appendRight(this.g);
-        this.b3.appendRight(this.n);
         if(this.inputs[0].leftNode && this.inputs[1].leftNode){
             this.b1.recieveLeft((this.inputs[0].leftNode));
             this.b2.recieveLeft(this.inputs[1].leftNode);

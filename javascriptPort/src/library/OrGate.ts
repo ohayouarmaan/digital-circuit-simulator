@@ -32,10 +32,6 @@ class OrGate extends Gate {
         this.nand.appendInput(this.b3);
         this.nand.appendInput(this.b4);
         this.nand.appendOutput(this.b5);
-        this.b1.appendRight(this.n1);
-        this.b2.appendRight(this.n2);
-        this.b3.appendRight(this.nand);
-        this.b4.appendRight(this.nand);
         if(this.inputs[0].leftNode && this.inputs[1].leftNode){
             this.b1.recieveLeft(this.inputs[0].leftNode);
             this.b2.recieveLeft(this.inputs[1].leftNode);

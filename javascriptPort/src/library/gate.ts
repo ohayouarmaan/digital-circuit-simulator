@@ -25,6 +25,7 @@ class Gate {
     }
 
     appendInput(b: Bus) {
+        b.recieveLeft(this);
         this.inputs[Object.keys(this.inputs).length] = b;
     }
 
