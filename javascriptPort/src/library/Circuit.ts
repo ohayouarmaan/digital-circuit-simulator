@@ -96,7 +96,7 @@ class Circuit {
     const busses: { [key: string]: Bus } = {};
 
     for (const gate of data.gates) {
-      const g = new ALL_GATES[gate.type]();
+      const g = new ALL_GATES[(gate.type as ("AndGate" | "OrGate" | "NandGate" | "NotGate"))]();
       gates[gate.id] = g;
     }
 

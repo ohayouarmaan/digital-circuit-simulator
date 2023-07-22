@@ -9,8 +9,8 @@ const n = new NandGate();
 const no = new NotGate();
 
 export default {
-    [a.constructor.name]: AND_GATE,
-    [o.constructor.name]: OrGate,
-    [n.constructor.name]: NandGate,
-    [no.constructor.name]: NotGate
+    "AndGate": AND_GATE,
+    "OrGate": OrGate,
+    "NandGate": NandGate,
+    "NotGate": NotGate
 }

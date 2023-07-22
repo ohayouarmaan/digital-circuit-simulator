@@ -14,7 +14,7 @@ class Gate {
         [key: string]: Bus
     } 
 
-    constructor(nr_inputs: number, nr_outputs: number, type = null) {
+    constructor(nr_inputs: number, nr_outputs: number, type: null | string = null) {
         this.nr_inputs = nr_inputs;
         this.nr_outputs = nr_outputs;
         this.type = type;

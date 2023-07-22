@@ -4,7 +4,7 @@ class AND_GATE extends Gate {
     values: number[] | undefined;
 
     constructor() {
-        super(2, 1);
+        super(2, 1, "AndGate");
     }
 
     process() {

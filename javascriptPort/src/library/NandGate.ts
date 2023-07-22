@@ -13,7 +13,7 @@ class NandGate extends Gate {
     n: NotGate;
 
     constructor() {
-        super(2, 1);
+        super(2, 1, "NandGate");
         this.b1 = new Bus();
         this.b2 = new Bus();
         this.b3 = new Bus();
