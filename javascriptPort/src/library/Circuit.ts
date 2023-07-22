@@ -7,8 +7,10 @@ class Circuit {
   nrInputs: number;
   nrOutputs: number;
   busses: Array<Bus>;
-  gates: Array<Gate>;
-
+  gates: Array<(Gate & {process: Function})>;
+  inputs: Array<string>;
+  outputs: Array<string>;
+  values: Array<number | Gate | null>;
   metadata: {
     gates: Array<object>;
     busses: Array<object>;
@@ -19,13 +21,16 @@ class Circuit {
     this.nrOutputs = nrOutputs;
     this.busses = [];
     this.gates = [];
+    this.inputs =[];
+    this.outputs =[];
+    this.values = [];
     this.metadata = {
       gates: [],
       busses: [],
     };
   }
 
-  appendGate(gate: Gate) {
+  appendGate(gate: (Gate & { process: Function })) {
     const data = gate.toJson();
     if (!data.type) {
       data.type = gate.constructor.name;
@@ -33,6 +38,38 @@ class Circuit {
 
     this.metadata.gates.push(data);
     this.gates.push(gate);
+  }
+
+  appendInput(bus: Bus){
+    this.inputs.push(bus.id);
+  }
+
+  appendOutput(bus: Bus){
+    this.outputs.push(bus.id);
+  }
+
+  process(values: Array<number>) {
+    var i = 0
+    for(const b of this.inputs) {
+      for(const bus of this.busses) {
+        if(b == bus.id) {
+          bus.recieveLeft(values[i])
+        }
+      }
+      i += 1
+    }
+    for(const g of this.gates){
+      g.process()
+    }
+
+    for(const o of this.outputs) {
+      for(const c of this.busses){
+        if(c.id == o) {
+          this.values.push(c.leftNode)
+        }
+      }
+    }
+
   }
 
   appendBus(bus: Bus) {
@@ -91,6 +128,7 @@ class Circuit {
       }
 
       g.id = gate.id;
+      gates[gate.id] = g
     }
 
     const circuit = new Circuit(data.nrInputs, data.nrOutputs);
@@ -99,7 +137,7 @@ class Circuit {
     }
 
     for (const y in gates) {
-      circuit.appendGate(gates[y]);
+      circuit.appendGate((gates[y] as (Gate & {process: Function})));
     }
 
     return circuit;
