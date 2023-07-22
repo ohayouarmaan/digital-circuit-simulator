@@ -5,7 +5,7 @@ from notGate import NotGate
 
 class NandGate(Gate):
     def __init__(self) -> None:
-        super().__init__(2, 1)
+        super().__init__(2, 1, "NandGate")
         self.b1 = Bus()
         self.b2 = Bus()
         self.b3 = Bus()

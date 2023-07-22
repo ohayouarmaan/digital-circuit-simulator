@@ -2,7 +2,7 @@ from Gate import Gate
 
 class AND_GATE(Gate):
     def __init__(self) -> None:
-        super().__init__(2, 1)
+        super().__init__(2, 1, type="AndGate")
 
     def process(self):
         if(len(self.inputs.keys()) < self.nr_inputs):

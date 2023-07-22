@@ -35,7 +35,7 @@
         "01029c16-931a-40ad-9e81-96f9a8353ca1"
       ],
       "rightNodes": ["76a914bb-c18d-445e-8ab3-6a6c805c7895"],
-      "type": "<class 'andGate.AND_GATE'>",
+      "type": "AndGate",
       "id": "fef764d8-f290-40cd-8e44-5c5050892b32"
     },
     {
@@ -44,7 +44,7 @@
         "e4f6190a-196f-4f9e-bcb3-f14224bba83b"
       ],
       "rightNodes": ["a9b782d3-a8c1-456b-9673-03909ae0272b"],
-      "type": "<class 'andGate.AND_GATE'>",
+      "type": "AndGate",
       "id": "4abceaec-846e-4e29-94ad-039981fd721e"
     }
   ],

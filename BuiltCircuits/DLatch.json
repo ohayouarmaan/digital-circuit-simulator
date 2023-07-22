@@ -1,1 +1,32 @@
-{"nr_inputs": 2, "nr_outputs": 1, "busses": [{"rightNodes": ["547b1ca8-d736-4e09-9735-65fafdc21ad6"], "leftNode": 1, "id": "0e023a06-e537-4c4b-b8a5-991d98c16f83"}, {"rightNodes": ["547b1ca8-d736-4e09-9735-65fafdc21ad6"], "leftNode": 0, "id": "44dde6f0-7d07-4845-9bac-600c057a470c"}, {"rightNodes": [], "leftNode": 1, "id": "dd33203e-0a80-4d5b-befa-77c3daefe416"}], "gates": [{"leftNodes": ["0e023a06-e537-4c4b-b8a5-991d98c16f83", "44dde6f0-7d07-4845-9bac-600c057a470c"], "rightNodes": ["0e023a06-e537-4c4b-b8a5-991d98c16f83"], "type": "DLatch", "id": "547b1ca8-d736-4e09-9735-65fafdc21ad6"}]}
+{
+  "nr_inputs": 2,
+  "nr_outputs": 1,
+  "busses": [
+    {
+      "rightNodes": ["547b1ca8-d736-4e09-9735-65fafdc21ad6"],
+      "leftNode": 1,
+      "id": "0e023a06-e537-4c4b-b8a5-991d98c16f83"
+    },
+    {
+      "rightNodes": ["547b1ca8-d736-4e09-9735-65fafdc21ad6"],
+      "leftNode": 0,
+      "id": "44dde6f0-7d07-4845-9bac-600c057a470c"
+    },
+    {
+      "rightNodes": [],
+      "leftNode": 1,
+      "id": "dd33203e-0a80-4d5b-befa-77c3daefe416"
+    }
+  ],
+  "gates": [
+    {
+      "leftNodes": [
+        "0e023a06-e537-4c4b-b8a5-991d98c16f83",
+        "44dde6f0-7d07-4845-9bac-600c057a470c"
+      ],
+      "rightNodes": ["0e023a06-e537-4c4b-b8a5-991d98c16f83"],
+      "type": "DLatch",
+      "id": "547b1ca8-d736-4e09-9735-65fafdc21ad6"
+    }
+  ]
+}
