@@ -9,6 +9,7 @@ const corsOrigin = process.env.ORIGIN?.split(" ") ? process.env.ORIGIN : ["*"];
 server.use(cors({
     origin: corsOrigin
 }));
+server.use(express.json());
 server.use(morgan("dev"));
 server.use("/api/v1", v1);
 

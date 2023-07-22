@@ -1,5 +1,6 @@
 import { Router, Request, Response, NextFunction } from "express";
 import CircuitModel from "../models/circuits";
+import ICircuit from "../../types/Circuit";
 const router = Router();
 
 router.get("/", async (req: Request<{from: number}, {}, {}>, res: Response, next: NextFunction) => {
@@ -9,6 +10,23 @@ router.get("/", async (req: Request<{from: number}, {}, {}>, res: Response, next
     } catch(e) {
         return res.json({
             "message": "Error."
+        });
+    };
+});
+
+router.post("/", async (req: Request<{}, {}, {
+    circuit: ICircuit
+}>, res: Response, next: NextFunction) => {
+    const newC = new CircuitModel({
+        ...req.body.circuit,
+    })
+    try{
+        await newC.save()
+        return res.json(newC);
+    } catch(e: any) {
+        console.log(e.message);
+        return res.json({
+            message: "Error creating circuit"
         });
     };
 });

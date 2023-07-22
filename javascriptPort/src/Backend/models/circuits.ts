@@ -44,7 +44,11 @@ const circuitSchema = new mongoose.Schema<ICircuitSchema>({
                 required: true
             }
         }
-    ]
+    ],
+    dateCreated: {
+        type: Date,
+        default: Date.now()
+    }
 });
 
 const circuitModel = mongoose.model<ICircuitSchema>("circuit", circuitSchema);

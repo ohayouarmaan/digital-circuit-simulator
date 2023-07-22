@@ -2,9 +2,10 @@
   "name": "javascriptport",
   "version": "1.0.0",
   "description": "",
-  "main": "bus.js",
+  "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:backend": "nodemon --config ./src/nodemon.json"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.4.2"
+    "@types/node": "^20.4.2",
+    "nodemon": "^3.0.1"
   }
 }
