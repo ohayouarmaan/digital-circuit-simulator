@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import EditorLib from "../EditorLibrary/Editor";
+import styles from "../styles/editor.module.css";
 
 export default function Editor() {
     const canvas = useRef<HTMLCanvasElement>(null);
@@ -29,7 +30,9 @@ export default function Editor() {
         <>
             {
                 dims.width && dims.height &&
-                <canvas ref={canvas} className="bg-gray-800 max-w-[100vw] max-h-[100vh]" width={dims.width} height={dims.height}></canvas>
+                <div className={`max-h-[100vh] max-w-[100vw] overflow-hidden ${styles.bgGrid}`}>
+                    <canvas ref={canvas} className="max-w-[100vw] max-h-[100vh]" width={dims.width} height={dims.height}></canvas>
+                </div>
             }
         </>
     )

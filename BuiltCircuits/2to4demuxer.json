@@ -1,0 +1,120 @@
+{
+  "nr_inputs": 2,
+  "nr_outputs": 4,
+  "busses": [
+    {
+      "rightNodes": [
+        "89e663aa-1da9-4ffe-9c22-ad1eb607e0c3",
+        "ec341fd2-c526-4de4-82a6-3cd68b1d3ad9"
+      ],
+      "leftNode": 0,
+      "id": "0d3c6ab6-9a3e-4b5f-bedd-a28b6e7aa79e"
+    },
+    {
+      "rightNodes": [
+        "bfefacca-68e9-406e-aa88-bccfc90f1933",
+        "a5686b81-2174-4cbd-b443-0e9483405a69",
+        "01f721df-50a1-49f0-b8a4-b099c4f5753c",
+        "ec341fd2-c526-4de4-82a6-3cd68b1d3ad9"
+      ],
+      "leftNode": 0,
+      "id": "e050e019-7b88-42a0-a5d1-172abb1d926d"
+    },
+    {
+      "rightNodes": [
+        "a7657af1-7e28-4532-bdd7-55a5f6728cf3",
+        "01f721df-50a1-49f0-b8a4-b099c4f5753c"
+      ],
+      "leftNode": 1,
+      "id": "9fa80946-73ea-4ab6-be0c-09d1062ec36c"
+    },
+    {
+      "rightNodes": [
+        "a7657af1-7e28-4532-bdd7-55a5f6728cf3",
+        "a5686b81-2174-4cbd-b443-0e9483405a69"
+      ],
+      "leftNode": 1,
+      "id": "45c5bafd-8bbe-4e5d-bbc9-d1d30679b750"
+    },
+    {
+      "rightNodes": [],
+      "leftNode": 1,
+      "id": "9f78099d-8017-48a5-8be7-c9d6d59317b1"
+    },
+    {
+      "rightNodes": [],
+      "leftNode": 0,
+      "id": "b1642564-3625-4eaf-9258-996ad578a03d"
+    },
+    {
+      "rightNodes": [],
+      "leftNode": 0,
+      "id": "56d0c0c3-9f5e-4f14-b1c1-293a499a7319"
+    },
+    {
+      "rightNodes": [],
+      "leftNode": 0,
+      "id": "6b0b4480-b60f-44cf-9722-e7e0003e3957"
+    }
+  ],
+  "gates": [
+    {
+      "leftNodes": ["0d3c6ab6-9a3e-4b5f-bedd-a28b6e7aa79e"],
+      "rightNodes": ["0d3c6ab6-9a3e-4b5f-bedd-a28b6e7aa79e"],
+      "type": "NotGate",
+      "id": "89e663aa-1da9-4ffe-9c22-ad1eb607e0c3"
+    },
+    {
+      "leftNodes": ["e050e019-7b88-42a0-a5d1-172abb1d926d"],
+      "rightNodes": ["e050e019-7b88-42a0-a5d1-172abb1d926d"],
+      "type": "NotGate",
+      "id": "bfefacca-68e9-406e-aa88-bccfc90f1933"
+    },
+    {
+      "leftNodes": [
+        "9fa80946-73ea-4ab6-be0c-09d1062ec36c",
+        "45c5bafd-8bbe-4e5d-bbc9-d1d30679b750"
+      ],
+      "rightNodes": ["9fa80946-73ea-4ab6-be0c-09d1062ec36c"],
+      "type": "AndGate",
+      "id": "a7657af1-7e28-4532-bdd7-55a5f6728cf3"
+    },
+    {
+      "leftNodes": [
+        "45c5bafd-8bbe-4e5d-bbc9-d1d30679b750",
+        "e050e019-7b88-42a0-a5d1-172abb1d926d"
+      ],
+      "rightNodes": ["45c5bafd-8bbe-4e5d-bbc9-d1d30679b750"],
+      "type": "AndGate",
+      "id": "a5686b81-2174-4cbd-b443-0e9483405a69"
+    },
+    {
+      "leftNodes": [
+        "9fa80946-73ea-4ab6-be0c-09d1062ec36c",
+        "e050e019-7b88-42a0-a5d1-172abb1d926d"
+      ],
+      "rightNodes": ["9fa80946-73ea-4ab6-be0c-09d1062ec36c"],
+      "type": "AndGate",
+      "id": "01f721df-50a1-49f0-b8a4-b099c4f5753c"
+    },
+    {
+      "leftNodes": [
+        "e050e019-7b88-42a0-a5d1-172abb1d926d",
+        "0d3c6ab6-9a3e-4b5f-bedd-a28b6e7aa79e"
+      ],
+      "rightNodes": ["e050e019-7b88-42a0-a5d1-172abb1d926d"],
+      "type": "AndGate",
+      "id": "ec341fd2-c526-4de4-82a6-3cd68b1d3ad9"
+    }
+  ],
+  "inputs": [
+    "0d3c6ab6-9a3e-4b5f-bedd-a28b6e7aa79e",
+    "e050e019-7b88-42a0-a5d1-172abb1d926d"
+  ],
+  "outputs": [
+    "9f78099d-8017-48a5-8be7-c9d6d59317b1",
+    "b1642564-3625-4eaf-9258-996ad578a03d",
+    "56d0c0c3-9f5e-4f14-b1c1-293a499a7319",
+    "6b0b4480-b60f-44cf-9722-e7e0003e3957"
+  ]
+}

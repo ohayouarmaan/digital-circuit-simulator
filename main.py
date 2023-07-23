@@ -25,36 +25,67 @@ if __name__ == "__main__":
     x0 = Bus()
     x1 = Bus()
     x2 = Bus()
-    y0 = Bus()
-    y1 = Bus()
-    y2 = Bus()
-    a1 = AND_GATE()
-    a2 = AND_GATE()
+    x3 = Bus()
+    x4 = Bus()
+    x5 = Bus()
+    x6 = Bus()
+    x7 = Bus()
 
-    a1.appendInput(x0)
-    a1.appendInput(x1)
-    a1.appendOutput(y1)
-    a2.appendInput(y1)
-    a2.appendInput(x2)
-    a2.appendOutput(y2)
+    and1 = AND_GATE()
+    and2 = AND_GATE()
+    and3 = AND_GATE()
+    and4 = AND_GATE()
 
-    x0.recieveLeft(1)
-    x1.recieveLeft(1)
-    x2.recieveLeft(1)
-    a1.process()
-    a2.process()
-    c = Circuit(3, 1)
-    c.appendBus(x0)
-    c.appendBus(x1)
-    c.appendBus(x2)
-    c.appendBus(y1)
-    c.appendBus(y2)
-    c.appendGate(a1)
-    c.appendGate(a2)
-    c.appendInput(x0)
-    c.appendInput(x1)
-    c.appendInput(x2)
-    c.appendOutput(y2)
+    n1 = NotGate()
+    n2 = NotGate()
+    
+    n1.appendInput(x0)
+    n2.appendInput(x1)
+    n1.appendOutput(x2)
+    n2.appendOutput(x3)
 
-    c.export("./BuiltCircuits/threeWayAndGate.json")
+    and1.appendInput(x2)
+    and1.appendInput(x3)
+    and1.appendOutput(x4)
+
+    and2.appendInput(x3)
+    and2.appendInput(x1)
+    and2.appendOutput(x5)
+
+    and3.appendInput(x2)
+    and3.appendInput(x1)
+    and3.appendOutput(x6)
+
+    and4.appendInput(x1)
+    and4.appendInput(x0)
+    and4.appendOutput(x7)
+
+    x0.recieveLeft(0)
+    x1.recieveLeft(0)
+
+    n1.process()
+    n2.process()
+    and1.process()
+    and2.process()
+    and3.process()
+    and4.process()
+
+    newC = Circuit(2, 4)
+    for b in [x0, x1, x2, x3, x4, x5, x6, x7]:
+        newC.appendBus(b)
+    
+    for g in [n1, n2, and1, and2, and3, and4]:
+        newC.appendGate(g)
+
+    newC.appendInput(x0)
+    newC.appendInput(x1)
+
+    for o in [x4, x5, x6, x7]:
+        newC.appendOutput(o)
+    
+    newC.export("./BuiltCircuits/2to4demuxer.json")
+
+    # print([x4.leftNode, x5.leftNode, x6.leftNode, x7.leftNode])
+
+
 
