@@ -37,3 +37,5 @@ class NorGate extends Gate {
     this.send((this.b4.leftNode as number));
   }
 }
+
+export default NorGate;

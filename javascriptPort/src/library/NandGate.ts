@@ -4,7 +4,7 @@ import AND_GATE from "./AndGate";
 import NotGate from "./NotGate";
 
 class NandGate extends Gate {
-    values: (number | Gate | null)[] | undefined;
+    values: (number | Gate | null)[];
     g: AND_GATE;
     b1: Bus;
     b2: Bus;
@@ -20,8 +20,9 @@ class NandGate extends Gate {
         this.b4 = new Bus();
         this.g = new AND_GATE();
         this.n = new NotGate();
-
+        this.values = []
     }
+
     process() {
         this.g.appendInput(this.b1);
         this.g.appendInput(this.b2);
@@ -38,6 +39,5 @@ class NandGate extends Gate {
         this.send( (this.b4.leftNode as number) );
     }
 }
-
 
 export default NandGate

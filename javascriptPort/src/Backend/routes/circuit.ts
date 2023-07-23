@@ -3,9 +3,9 @@ import CircuitModel from "../models/circuits";
 import ICircuit from "../../types/Circuit";
 const router = Router();
 
-router.get("/", async (req: Request<{from: number}, {}, {}>, res: Response, next: NextFunction) => {
+router.get("/", async (req: Request<{}, {}, {}, {from: number}>, res: Response, next: NextFunction) => {
     try{
-        const foundCircuits = await CircuitModel.find({}).skip(req.params.from).limit(req.params.from + 10);
+        const foundCircuits = await CircuitModel.find({}).skip(req.query.from).limit(req.query.from + 10);
         return res.json(foundCircuits);
     } catch(e) {
         return res.json({
@@ -27,6 +27,19 @@ router.post("/", async (req: Request<{}, {}, {
         console.log(e.message);
         return res.json({
             message: "Error creating circuit"
+        });
+    };
+});
+
+router.get("/:id", async(req: Request<{ id: string }>, res: Response) => {
+    try{
+        const _id = req.params.id;
+        const foundCircuit = await CircuitModel.find({ _id })
+        return res.json(foundCircuit);
+    } catch(e: any) {
+        console.log(e.message);
+        return res.json({
+            message: "Error fetching the circuit"
         });
     };
 });
