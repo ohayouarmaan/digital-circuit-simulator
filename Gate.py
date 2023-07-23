@@ -26,6 +26,9 @@ class Gate:
     def send(self, y):
         for x in list(self.outputs.keys()):
             self.outputs[x].recieveLeft(y)
+    
+    def append(self, bus):
+        self.appendInput(bus)
 
     def toJson(self):
         return {
