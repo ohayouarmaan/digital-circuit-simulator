@@ -51,7 +51,7 @@ if __name__ == "__main__":
         c.appendBus(b)
 
     for g in [n1, dl1, dl2]:
-        c.appendBus(g)
+        c.appendGate(g)
     
     c.appendInput(x0)
     c.appendInput(x1)

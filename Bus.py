@@ -4,6 +4,7 @@ class Bus:
     def __init__(self) -> None:
         self.rightNodes = {}
         self.id = str(uuid.uuid4())
+        self.leftNode = 0
     
     def appendRight(self, g):
         self.rightNodes[g.id] = g
